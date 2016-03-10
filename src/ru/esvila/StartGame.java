@@ -31,16 +31,20 @@ public class StartGame {
 
         //создаем героя
         if (x == 1) {
-                this.mainHero = new Warrior(mainHeroClass, nameHero, 15, 10, 10, 15);
+                mainHero = new Warrior(mainHeroClass, nameHero, 15, 10, 10, 15);
+                mainHero.heroInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using));
         }
         else if (x == 2) {
-            this.mainHero = new Mag(mainHeroClass, nameHero, 10, 15, 10, 15);
+            mainHero = new Mag(mainHeroClass, nameHero, 10, 15, 10, 15);
+            mainHero.heroInv.addItemInInventory(new Item("Слабое зелье маны", Item.ItemType.using));
         }
         else if (x == 3) {
-            this.mainHero = new Rogue (mainHeroClass,nameHero , 10, 10, 15, 15);
+            mainHero = new Rogue (mainHeroClass,nameHero , 10, 10, 15, 15);
+            mainHero.heroInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using));
         }
 
         mainHero.getInfo();
+
 
 
 

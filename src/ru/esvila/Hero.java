@@ -8,6 +8,7 @@ public abstract class Hero extends GameCharacter {
     protected int killedMonsters;
     protected int exp;
     protected int expToLevel;
+    protected Inventory heroInv;
 
 
 
@@ -16,6 +17,7 @@ public abstract class Hero extends GameCharacter {
         killedMonsters = 0;
         exp = 0;
         expToLevel = 1000;
+        heroInv = new Inventory();
     }
 
 
