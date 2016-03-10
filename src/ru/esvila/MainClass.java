@@ -7,7 +7,8 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        StartGame.initGame();
+        StartGame sg = new StartGame();
+        sg.initGame();
 
 
     }
