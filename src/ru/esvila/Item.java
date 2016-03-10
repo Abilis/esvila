@@ -6,7 +6,7 @@ package ru.esvila;
 public class Item {
 
     private String nameOfItem;
-    public static enum ItemType {using, quest, weapon, armor, infinity}
+    public enum ItemType {using, quest, weapon, armor, infinity}
     private ItemType type;
 
     public Item(String nameOfItem, ItemType type) {
