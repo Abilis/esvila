@@ -33,6 +33,7 @@ public class Rogue extends Hero {
             agility += (int) (baseAgility * 0.3);
             stamina += (int) (baseStamina * 0.2);
             level++;
+            expToLevel *= 1.3;
         }
 
         calculateSecondaryParameters();

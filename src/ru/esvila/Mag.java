@@ -39,6 +39,7 @@ public class Mag extends Hero{
             agility += (int) (baseAgility * 0.1);
             stamina += (int) (baseStamina * 0.2);
             level++;
+            expToLevel *= 1.3;
         }
 
         calculateSecondaryParameters();

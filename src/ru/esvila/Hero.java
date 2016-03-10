@@ -31,4 +31,22 @@ public abstract class Hero extends GameCharacter {
 
     public abstract void levelUp (int numLevels);
 
+    public void addExp(int addExp) {
+        exp += addExp;
+
+        if (exp >= expToLevel) {
+            int numLevels = (int) (exp / expToLevel);
+
+            for (int i = 1; i <= numLevels; i++) {
+
+                if (exp < expToLevel) {
+                    break;
+                }
+
+                exp -= expToLevel;
+                levelUp(1);
+            }
+        }
+    }
+
 }

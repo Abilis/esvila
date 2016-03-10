@@ -32,6 +32,7 @@ public class Warrior extends Hero {
             agility += (int) (baseAgility * 0.1);
             stamina += (int) (baseStamina * 0.3);
             level++;
+            expToLevel *= 1.3;
         }
 
         calculateSecondaryParameters();

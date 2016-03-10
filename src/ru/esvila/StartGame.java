@@ -41,18 +41,7 @@ public class StartGame {
         }
 
         mainHero.getInfo();
-        mainHero.levelUp(1);
-        mainHero.getInfo();
-        mainHero.levelUp(1);
-        mainHero.getInfo();
-        mainHero.levelUp(1);
-        mainHero.getInfo();
-        mainHero.levelUp(1);
-        mainHero.getInfo();
-        mainHero.levelUp(1);
-        mainHero.getInfo();
-        mainHero.levelUp(1);
-        mainHero.getInfo();
+
 
 
 
