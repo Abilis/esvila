@@ -71,6 +71,9 @@ public class Battle {
                     break;
                 case 2:
                     //защита героем
+                    hero.defenseStanse = true;
+                    System.out.println(hero.getName() + " встал в защитную стойку!");
+                    break;
                 case 3:
                     //вызов инвентаря героя
                     hero.showInventory = true;

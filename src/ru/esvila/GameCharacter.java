@@ -44,6 +44,7 @@ public abstract class GameCharacter {
     }
 
     protected boolean showInventory;
+    protected boolean defenseStanse;
 
 
     public GameCharacter (String charClass, String charName, int strength, int intellect, int agility, int stamina) {
@@ -60,6 +61,7 @@ public abstract class GameCharacter {
         this.agility = baseAgility;
         this.stamina = baseStamina;
         this.alive = true;
+        defenseStanse = false;
 
         level = 1;
 
@@ -102,32 +104,44 @@ public abstract class GameCharacter {
 
     public void getDamage(int inputDamage) {
 
-        int currentDefense;
-        int minCurrentDefense = (int)(defense * 0.8);
-        int deltaCurrentDefense = (int)(defense * 0.4);
-
-        currentDefense = minCurrentDefense + Utilites.rand.nextInt(deltaCurrentDefense);
-
-        int currentInputDamage = inputDamage - currentDefense;
-
-        if (currentInputDamage < 0) {
-            currentInputDamage = 0;        }
-
-        System.out.println(charName + " получает " + currentInputDamage + " единиц урона");
-
-        hp -= currentInputDamage;
-
-        if (hp <= 0) {
-            alive = false;
-            hp = 0;
+        if (avoidChance >= Utilites.rand.nextInt(100)) {
+            System.out.println(charName + " увернулся от атаки!");
         }
+        else {
 
+            int currentDefense;
+            int minCurrentDefense = (int) (defense * 0.8);
+            int deltaCurrentDefense = (int) (defense * 0.4);
+
+            currentDefense = minCurrentDefense + Utilites.rand.nextInt(deltaCurrentDefense);
+
+            int currentInputDamage = inputDamage - currentDefense;
+
+            if (defenseStanse) {
+                System.out.println(charName + " заблокировал дополнительно " + currentDefense + " единиц урона в защитной стойке!");
+                currentInputDamage -= currentDefense;
+            }
+
+            if (currentInputDamage < 0) {
+                currentInputDamage = 0;
+            }
+
+            System.out.println(charName + " получает " + currentInputDamage + " единиц урона");
+
+            hp -= currentInputDamage;
+
+            if (hp <= 0) {
+                alive = false;
+                hp = 0;
+            }
+        }
 
     }
 
     public void makeNewRoundOfBattle() {
         runaway = false;
         showInventory = false;
+        defenseStanse = false;
     }
 
     public void useItem(String item) {
