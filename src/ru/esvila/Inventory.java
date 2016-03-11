@@ -20,6 +20,10 @@ public class Inventory {
         inv.add(newItem);
     }
 
+    public Item getItemFromInventory(int indexItem) {
+        return inv.get(indexItem);
+    }
+
     public void removeItemFromInventory(Item oldItem) {
         inv.remove(oldItem);
     }
@@ -64,6 +68,15 @@ public class Inventory {
 
     public void addGold(int gold) {
         this.gold += gold;
+    }
+
+    public static void transferItemsFromFirstInvToSecondInv(Inventory firstInv, Inventory secondInv) {
+
+        for (int i = 0; i < firstInv.getSizeInventory(); i++) {
+            secondInv.addItemInInventory(firstInv.getItemFromInventory(i));
+            System.out.println("Добыча: " + firstInv.getItemFromInventory(i));
+        }
+
     }
 
 

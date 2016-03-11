@@ -1,5 +1,7 @@
 package ru.esvila;
 
+import java.util.ArrayList;
+
 /**
  * Created by Abilis on 10.03.2016.
  */
@@ -7,12 +9,17 @@ public abstract class Monster extends GameCharacter {
 
     protected Inventory monsterInv;
     protected int baseGold = 10;
+    protected int dropChance = 30;
 
 
     public Monster(String monsterClass, String nameMonster, int strength, int intellect, int agility, int stamina) {
         super(monsterClass, nameMonster, strength, intellect, agility, stamina);
         monsterInv = new Inventory();
         monsterInv.addGold((int)(baseGold * 0.8 + Utilites.rand.nextInt((int)(baseGold * 0.4))));
+
+        if (dropChance >= Utilites.rand.nextInt(101)) {
+            monsterInv.addItemInInventory(new Item(getRandomOtherItem(), Item.ItemType.other));
+        }
     }
 
 
@@ -47,6 +54,27 @@ public abstract class Monster extends GameCharacter {
         }
 
         return monsterAction;
+    }
+
+    private String getRandomOtherItem() {
+        ArrayList<String> listOfOtherItems = new ArrayList<String>();
+
+        listOfOtherItems.add("Сломанный меч");
+        listOfOtherItems.add("Истертая древняя монета");
+        listOfOtherItems.add("Слабое зелье лечения");
+        listOfOtherItems.add("Слабое зелье маны");
+        listOfOtherItems.add("Сломанный посох");
+        listOfOtherItems.add("Обмломок кастета");
+        listOfOtherItems.add("Разбитый монокль");
+        listOfOtherItems.add("Наконечник стрелы");
+        listOfOtherItems.add("Пуговица");
+        listOfOtherItems.add("Свеча");
+
+        int randomItemIndex = Utilites.rand.nextInt(listOfOtherItems.size() + 1);
+        String nameOfItem = listOfOtherItems.get(randomItemIndex);
+
+
+        return nameOfItem;
     }
 
 

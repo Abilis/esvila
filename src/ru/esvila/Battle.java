@@ -142,6 +142,7 @@ public class Battle {
                 hero.killedMonsters++;
                 hero.heroInv.addGold(monster.monsterInv.getGold());
                 System.out.println(hero.getName() + " забирает " + monster.monsterInv.getGold() + " золотых монет");
+                Inventory.transferItemsFromFirstInvToSecondInv(monster.monsterInv, hero.heroInv);
                 break;
             }
             else if (!monster.alive && !hero.alive) {
