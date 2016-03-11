@@ -97,7 +97,10 @@ public class Battle {
                             hero.useItem(usedItem); //использование
                         }
                     }
-
+                    break;
+                case 4:
+                    //магическое лечение. Только для магов
+                    hero.magicHeal();
                     break;
             }
 
@@ -143,8 +146,15 @@ public class Battle {
             }
             else if (!monster.alive && !hero.alive) {
                 System.out.println("Все умерли!");
+                break;
             }
 
+
+            if (hero instanceof Mag) {
+                if (hero.mana < hero.manaMax) {
+                    hero.recovMana((int)(hero.baseMana * 0.05));
+                }
+            }
 
         } while (true);
 

@@ -46,6 +46,11 @@ public abstract class GameCharacter {
     protected boolean showInventory;
     protected boolean defenseStanse;
 
+    protected int mana;
+    protected int baseMana;
+    protected int manaMax;
+    protected int magicAttack;
+
 
     public GameCharacter (String charClass, String charName, int strength, int intellect, int agility, int stamina) {
         this.charClass = charClass;
@@ -92,11 +97,13 @@ public abstract class GameCharacter {
         int deltaCurrentAttack = (int)(attack * 0.4);
 
         currentAttack = minCurrentAttack + Utilites.rand.nextInt(deltaCurrentAttack);
-        System.out.println(charName + " наносит удар в " + currentAttack + " единиц урона");
 
         if (critChance > Utilites.rand.nextInt(100)) {
             currentAttack = currentAttack * 2;
             System.out.println(charName + " наносит критический удар в " + currentAttack + " единиц урона!");
+        }
+        else {
+            System.out.println(charName + " наносит удар в " + currentAttack + " единиц урона");
         }
 
         return currentAttack;
@@ -175,8 +182,13 @@ public abstract class GameCharacter {
 
     public void recovMana (int mana) {
 
-        //Маг переопределяет этот метод
+        //маги переопределяет этот метод
         System.out.println("Не маги не могут использовать этот метод!");
+    }
+
+
+    public void magicHeal() {
+        //маги переопределяет этот метод
     }
 
 }

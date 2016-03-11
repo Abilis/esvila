@@ -5,10 +5,7 @@ package ru.esvila;
  */
 public class Mag extends Hero{
 
-    protected int spellPower;
-    protected int mana;
-    protected int manaMax;
-    protected int magicAttack;
+
 
     public Mag(String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
         super(heroClass, nameHero, strength, intellect, agility, stamina);
@@ -24,7 +21,8 @@ public class Mag extends Hero{
         hp = stamina * 4;
         critChance = 3 + intellect / 3;
         avoidChance = 5 + agility / 3;
-        mana = intellect * 4;
+        baseMana = intellect * 4;
+        mana = baseMana;
         manaMax = mana;
 
         hp = stamina * 4;
@@ -66,5 +64,53 @@ public class Mag extends Hero{
         }
         System.out.println(charName + " восстановил " + _mana + " единиц маны!");
     }
+
+    @Override
+    public int inputNum() {
+        int inputNum = Utilites.getAction(0, 4, "1 - атака, 2 - защита, 3 - инвентарь, 4 - магическое исцеление, 0 - убежать");
+        return inputNum;
+    }
+
+    @Override
+    public int makeAttack() {
+
+        if (mana < baseMana * 0.2) {
+            System.out.println("Недостаточно маны для атаки!");
+            return 0;
+        }
+        else {
+
+            int currentAttack;
+            int minCurrentAttack = (int) (magicAttack * 0.8);
+            int deltaCurrentAttack = (int) (magicAttack * 0.4);
+
+            mana -= baseMana * 0.2;
+
+            currentAttack = minCurrentAttack + Utilites.rand.nextInt(deltaCurrentAttack);
+            System.out.println(charName + " наносит удар в " + currentAttack + " единиц урона с помощью файербола");
+
+            if (critChance > Utilites.rand.nextInt(100)) {
+                currentAttack = currentAttack * 2;
+                System.out.println(charName + " наносит критический удар в " + currentAttack + " единиц урона с помощью файербола!");
+            }
+
+            return currentAttack;
+        }
+    }
+
+    @Override
+    public void magicHeal() {
+
+        if (mana < baseMana * 0.25) {
+            System.out.println("Недостаточно маны для лечения!");
+        }
+        else {
+            cure((int)(hpMax * 0.3));
+            mana -= baseMana * 0.25;
+        }
+
+    }
+
+
 
 }
