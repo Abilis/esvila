@@ -36,6 +36,7 @@ public class Goblin extends Monster {
             agility += (int) (baseAgility * 0.1);
             stamina += (int) (baseStamina * 0.3);
             level++;
+            monsterInv.addGold(getLevel() * (int)(baseGold * 0.8 + Utilites.rand.nextInt((int)(baseGold * 0.4))));
         }
 
         calculateSecondaryParameters();

@@ -57,7 +57,7 @@ public class Battle {
 
             //ход героя
             hero.makeNewRoundOfBattle();
-            inputNum = Utilites.getAction(0, 2, "1 - атака, 2 - защита, 0 - убежать");
+            inputNum = Utilites.getAction(0, 3, "1 - атака, 2 - защита, 3 - инвентарь, 0 - убежать");
 
             switch (inputNum) {
 
@@ -67,15 +67,24 @@ public class Battle {
                 case 1:
                     //атака героем
                     monster.getDamage(hero.makeAttack());
-
-
                     break;
                 case 2:
                     //защита героем
+                case 3:
+                    //вызов инвентаря героя
+                    hero.showInventory = true;
+                    hero.heroInv.showInventory();
+
+
 
             }
 
             //ход монстра
+
+            //если герой смотрел инвентарь в данной итерации, то начинаем итерацию заново
+            if (hero.showInventory) {
+                continue;
+            }
 
             //пока монстр умеет только атаковать
             hero.getDamage(monster.makeAttack());
@@ -93,6 +102,11 @@ public class Battle {
             }
             else if (!monster.alive) {
                 System.out.println(hero.getDescription() + " убил монстра " + monster.getDescription());
+                hero.addExp(monster.hpMax);
+                System.out.println(hero.getName() + " получил " + monster.hpMax + " опыта");
+                hero.killedMonsters++;
+                hero.heroInv.addGold(monster.monsterInv.getGold());
+                System.out.println(hero.getName() + " забирает " + monster.monsterInv.getGold() + " золотых монет");
                 break;
             }
 
@@ -100,7 +114,7 @@ public class Battle {
         } while (true);
 
         //после боя
-
+        hero.getInfo();
 
 
     }

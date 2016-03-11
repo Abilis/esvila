@@ -26,6 +26,11 @@ public abstract class GameCharacter {
     protected float avoidChance;
 
     protected int level;
+
+    public int getLevel() {
+        return level;
+    }
+
     protected boolean alive;
 
     private static boolean runaway;
@@ -38,6 +43,7 @@ public abstract class GameCharacter {
         runaway = value;
     }
 
+    protected boolean showInventory;
 
 
     public GameCharacter (String charClass, String charName, int strength, int intellect, int agility, int stamina) {
@@ -113,6 +119,7 @@ public abstract class GameCharacter {
 
         if (hp <= 0) {
             alive = false;
+            hp = 0;
         }
 
 
@@ -120,6 +127,7 @@ public abstract class GameCharacter {
 
     public void makeNewRoundOfBattle() {
         runaway = false;
+        showInventory = false;
     }
 
 }
