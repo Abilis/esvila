@@ -9,7 +9,8 @@ public abstract class Monster extends GameCharacter {
 
     protected Inventory monsterInv;
     protected int baseGold = 10;
-    protected int dropChance = 100;
+    protected int dropChanceOther = 30;
+    protected int dropChanceUsing = 30;
 
 
     public Monster(String monsterClass, String nameMonster, int strength, int intellect, int agility, int stamina) {
@@ -17,8 +18,11 @@ public abstract class Monster extends GameCharacter {
         monsterInv = new Inventory();
         monsterInv.addGold((int)(baseGold * 0.8 + Utilites.rand.nextInt((int)(baseGold * 0.4))));
 
-        if (dropChance >= Utilites.rand.nextInt(101)) {
+        if (dropChanceOther >= Utilites.rand.nextInt(101)) {
             monsterInv.addItemInInventory(new Item(getRandomOtherItem(), Item.ItemType.other));
+        }
+        if (dropChanceUsing >= Utilites.rand.nextInt(101)) {
+            monsterInv.addItemInInventory(new Item(getRandomUsingItem(), Item.ItemType.using));
         }
     }
 
@@ -71,6 +75,18 @@ public abstract class Monster extends GameCharacter {
         int randomItemIndex = Utilites.rand.nextInt(listOfOtherItems.size());
         String nameOfItem = listOfOtherItems.get(randomItemIndex);
 
+        return nameOfItem;
+    }
+
+    private String getRandomUsingItem() {
+        ArrayList<String> listOfUsingItems = new ArrayList<String>();
+
+        listOfUsingItems.add("Слабое зелье лечения");
+        listOfUsingItems.add("Слабое зелье маны");
+
+
+        int randomItemIndex = Utilites.rand.nextInt(listOfUsingItems.size());
+        String nameOfItem = listOfUsingItems.get(randomItemIndex);
 
         return nameOfItem;
     }

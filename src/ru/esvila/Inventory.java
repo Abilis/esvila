@@ -107,6 +107,9 @@ public class Inventory {
         } //конец if
     } //конец метода
 
+    public void sortInventory(Inventory _inv) {
+
+    }
 
 
 
