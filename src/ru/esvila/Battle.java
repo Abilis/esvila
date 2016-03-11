@@ -11,6 +11,9 @@ public class Battle {
     public enum MonsterType {Гоблин, Нежить}
     private MonsterType type;
 
+    private static int inputNum;
+
+
     public static Monster createMonster(MonsterType type) {
 
         switch (type) {
@@ -44,6 +47,64 @@ public class Battle {
     public static void startBattle(Hero hero, Monster monster) {
 
         System.out.println(hero.getDescription() + " и " + monster.getDescription() + " не смогли разойтись на узкой тропинке!");
+
+        //цикл боя
+        do {
+
+            hero.getInfo();
+            System.out.println("<против>");
+            monster.getInfo();
+
+            //ход героя
+            hero.makeNewRoundOfBattle();
+            inputNum = Utilites.getAction(0, 2, "1 - атака, 2 - защита, 0 - убежать");
+
+            switch (inputNum) {
+
+                case 0:
+                    hero.setRunaway(true);
+                    break;
+                case 1:
+                    //атака героем
+                    monster.getDamage(hero.makeAttack());
+
+
+                    break;
+                case 2:
+                    //защита героем
+
+            }
+
+            //ход монстра
+
+            //пока монстр умеет только атаковать
+            hero.getDamage(monster.makeAttack());
+
+
+            //проверка условия выхода из цикла боя
+            if (hero.getRunaway()) {
+                System.out.println(hero.getName() + " сбежал с поля боя!");
+                break;
+            }
+
+            if (!hero.alive) {
+                System.out.println(monster.getDescription() + " победил героя!");
+                break;
+            }
+            else if (!monster.alive) {
+                System.out.println(hero.getDescription() + " убил монстра " + monster.getDescription());
+                break;
+            }
+
+
+        } while (true);
+
+        //после боя
+
+
+
     }
+
+
 
 }
