@@ -11,7 +11,8 @@ import java.util.Random;
  */
 public class Utilites {
 
-    Random rand = new Random(); //ГСЧ
+    public static Random rand = new Random(); //ГСЧ
+
 
     public static String inputStr(String message) { //метод, возвращающий введенную строку
 

@@ -5,8 +5,8 @@ package ru.esvila;
  */
 public abstract class GameCharacter {
 
-    protected String heroClass;
-    protected String nameHero;
+    protected String charClass;
+    protected String charName;
     protected int baseStrength;
     protected int baseIntellect;
     protected int baseAgility;
@@ -29,9 +29,9 @@ public abstract class GameCharacter {
 
 
 
-    public GameCharacter (String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
-        this.heroClass = heroClass;
-        this.nameHero = nameHero;
+    public GameCharacter (String charClass, String charName, int strength, int intellect, int agility, int stamina) {
+        this.charClass = charClass;
+        this.charName = charName;
 
         baseStrength = strength;
         baseIntellect = intellect;
@@ -52,7 +52,11 @@ public abstract class GameCharacter {
 
 
     public void getInfo() {
-        System.out.println(heroClass + " " + nameHero + ". hp: " + hp + "/" + hpMax + ", уровень: " + level);
+        System.out.println(charClass + " " + charName + ". hp: " + hp + "/" + hpMax + ", уровень: " + level);
+    }
+
+    public String getDescription() {
+        return (charClass + " " + charName);
     }
 
     public abstract void levelUp (int numLevels); //метод, увеличивающий уровень персонажа на NumLevels уровней

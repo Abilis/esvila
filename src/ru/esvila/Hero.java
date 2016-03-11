@@ -26,7 +26,7 @@ public abstract class Hero extends GameCharacter {
 
     @Override
     public void getInfo() {
-        System.out.println(heroClass + " " + nameHero + ". hp: " + hp + "/" + hpMax + ", опыт: " + exp + "/"
+        System.out.println(charClass + " " + charName + ". hp: " + hp + "/" + hpMax + ", опыт: " + exp + "/"
                 + expToLevel + ", уровень: " + level +
                             ". Убито монстров: " + killedMonsters);
     }

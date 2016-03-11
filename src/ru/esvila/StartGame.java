@@ -7,10 +7,11 @@ import javax.print.attribute.standard.MediaSize;
  */
 public class StartGame {
 
-    public Hero mainHero;
+    public static Hero mainHero;
 
 
-    public void initGame() {
+
+    public static Hero initGame() {
 
 
         System.out.println("В один прекрасный день один из жителей маленького, но гордого города" +
@@ -49,6 +50,7 @@ public class StartGame {
 
 
 
+        return mainHero;
     }
 
     public static String getHeroClass(int x) {

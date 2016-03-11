@@ -7,8 +7,14 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        StartGame sg = new StartGame();
-        sg.initGame();
+        //Инициализируем главного героя
+        Hero mainHero = StartGame.initGame();
+
+        //создаем монстра
+        Monster currentMonster = Battle.createRandomMonster();
+
+        //запускаем бой между героем и созданным монстром
+        Battle.startBattle(mainHero, currentMonster);
 
 
     }
