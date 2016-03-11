@@ -15,7 +15,7 @@ public abstract class Hero extends GameCharacter {
         super(heroClass, nameHero, strength, intellect, agility, stamina);
         killedMonsters = 0;
         exp = 0;
-        expToLevel = 1000;
+        expToLevel = 100;
         heroInv = new Inventory();
         showInventory = false;
     }
@@ -41,6 +41,7 @@ public abstract class Hero extends GameCharacter {
             do {
                 exp -= expToLevel;
                 levelUp(1);
+                System.out.println(charName + " увеличил уровень до " + level + "!");
 
                 if (exp < expToLevel) {
                     break;

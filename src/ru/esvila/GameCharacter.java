@@ -161,7 +161,6 @@ public abstract class GameCharacter {
             case "Слабое зелье маны":
                 recovMana(50);
                 break;
-
         }
 
 

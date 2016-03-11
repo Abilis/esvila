@@ -6,7 +6,7 @@ package ru.esvila;
 public class Mag extends Hero{
 
 
-    
+
     public Mag(String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
         super(heroClass, nameHero, strength, intellect, agility, stamina);
     }
@@ -19,15 +19,12 @@ public class Mag extends Hero{
         attack = (int)(strength * 1.2);
         defense = (int)(strength / 2);
         hp = stamina * 4;
+        hpMax = hp;
         critChance = 3 + intellect / 3;
         avoidChance = 5 + agility / 3;
         baseMana = intellect * 4;
         mana = baseMana;
         manaMax = mana;
-
-        hp = stamina * 4;
-        hpMax = hp;
-
     }
 
     @Override

@@ -96,6 +96,9 @@ public class Battle {
                             System.out.println(hero.getName() + " использовал " + usedItem);
                             hero.useItem(usedItem); //использование
                         }
+                        else {
+                            System.out.println("Невозможно использовать этот предмет!");
+                        }
                     }
                     break;
                 case 4:
@@ -131,6 +134,10 @@ public class Battle {
                 break;
             }
 
+            else if (!monster.alive && !hero.alive) {
+                System.out.println("Все умерли!");
+                break;
+            }
             if (!hero.alive) {
                 System.out.println(monster.getDescription() + " победил героя!");
                 break;
@@ -143,10 +150,6 @@ public class Battle {
                 hero.heroInv.addGold(monster.monsterInv.getGold());
                 System.out.println(hero.getName() + " забирает " + monster.monsterInv.getGold() + " золотых монет");
                 Inventory.transferItemsFromFirstInvToSecondInv(monster.monsterInv, hero.heroInv);
-                break;
-            }
-            else if (!monster.alive && !hero.alive) {
-                System.out.println("Все умерли!");
                 break;
             }
 

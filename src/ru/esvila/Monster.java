@@ -9,7 +9,7 @@ public abstract class Monster extends GameCharacter {
 
     protected Inventory monsterInv;
     protected int baseGold = 10;
-    protected int dropChance = 30;
+    protected int dropChance = 100;
 
 
     public Monster(String monsterClass, String nameMonster, int strength, int intellect, int agility, int stamina) {
@@ -61,8 +61,6 @@ public abstract class Monster extends GameCharacter {
 
         listOfOtherItems.add("Сломанный меч");
         listOfOtherItems.add("Истертая древняя монета");
-        listOfOtherItems.add("Слабое зелье лечения");
-        listOfOtherItems.add("Слабое зелье маны");
         listOfOtherItems.add("Сломанный посох");
         listOfOtherItems.add("Обмломок кастета");
         listOfOtherItems.add("Разбитый монокль");
@@ -70,7 +68,7 @@ public abstract class Monster extends GameCharacter {
         listOfOtherItems.add("Пуговица");
         listOfOtherItems.add("Свеча");
 
-        int randomItemIndex = Utilites.rand.nextInt(listOfOtherItems.size() + 1);
+        int randomItemIndex = Utilites.rand.nextInt(listOfOtherItems.size());
         String nameOfItem = listOfOtherItems.get(randomItemIndex);
 
 

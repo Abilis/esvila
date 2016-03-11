@@ -24,6 +24,10 @@ public class Inventory {
         return inv.get(indexItem);
     }
 
+    public void setItemInInventory(int indexItem, Item item) {
+        inv.set(indexItem, item);
+    }
+
     public void removeItemFromInventory(Item oldItem) {
         inv.remove(oldItem);
     }
@@ -76,8 +80,33 @@ public class Inventory {
             secondInv.addItemInInventory(firstInv.getItemFromInventory(i));
             System.out.println("Добыча: " + firstInv.getItemFromInventory(i));
         }
-
+        sortInv(secondInv);
     }
+
+    public static void sortInv(Inventory _inv) {
+
+        if (_inv.getSizeInventory() > 1) {
+
+            for (int j = 0; j < _inv.getSizeInventory(); j++) {
+                for (int i = 0; i < _inv.getSizeInventory() - 1; i++) {
+                    Item itemI = _inv.getItemFromInventory(i);
+                    Item itemIPlusOne = _inv.getItemFromInventory(i + 1);
+
+                    String nameOfItemI = itemI.getName();
+                    String nameOfItemIPlusOne = itemIPlusOne.getName();
+
+                    int Str1MoreStr2 = nameOfItemI.compareTo(nameOfItemIPlusOne);
+
+                    if (Str1MoreStr2 > 0) {
+                        Item tmp = itemI;
+                        _inv.setItemInInventory(i, _inv.getItemFromInventory(i + 1));
+                        _inv.setItemInInventory(i + 1, tmp);
+                    }
+                } //конец внутреннего цикла
+            } //конец внешнего цикла
+        } //конец if
+    } //конец метода
+
 
 
 

@@ -16,12 +16,9 @@ public class Rogue extends Hero {
         attack = (int)(agility * 1.5);
         defense = (int)(strength / 2);
         hp = stamina * 4;
+        hpMax = hp;
         critChance = 3 + agility / 3;
         avoidChance = 5 + agility / 3;
-
-        hp = stamina * 4;
-        hpMax = hp;
-
     }
 
     @Override
