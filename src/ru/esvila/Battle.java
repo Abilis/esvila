@@ -13,6 +13,7 @@ public class Battle {
 
     private static int inputNum;
     private static int inputInv;
+    private static int monsterAction;
 
 
     public static Monster createMonster(MonsterType type) {
@@ -58,7 +59,16 @@ public class Battle {
 
             //ход героя
             hero.makeNewRoundOfBattle();
+
+            monster.makeNewRoundOfBattle();
+
             inputNum = Utilites.getAction(0, 3, "1 - атака, 2 - защита, 3 - инвентарь, 0 - убежать");
+
+            monsterAction = monster.getMonsterAction();
+            if (monsterAction == 2) {
+                monster.defenseStanse = true;
+                System.out.println(monster.getName() + " встал в защитную стойку!");
+            }
 
             switch (inputNum) {
 
@@ -98,8 +108,18 @@ public class Battle {
                 continue;
             }
 
-            //пока монстр умеет только атаковать
-            hero.getDamage(monster.makeAttack());
+            //ход монстра
+            switch (monsterAction) {
+
+                case 1:
+                    hero.getDamage(monster.makeAttack());
+                    break;
+
+                // если монстр решил использовать защитную стойку, то это уже учтено
+
+            }
+
+
 
 
             //проверка условия выхода из цикла боя

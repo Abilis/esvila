@@ -8,7 +8,7 @@ import javax.print.attribute.standard.MediaSize;
 public class StartGame {
 
     public static Hero mainHero;
-
+    public static String nameHero;
 
 
     public static Hero initGame() {
@@ -20,7 +20,9 @@ public class StartGame {
 
         System.out.println();
 
-        String nameHero = Utilites.inputStr("Как зовут героя?");
+        do {
+            nameHero = Utilites.inputStr("Как зовут героя?");
+        } while (nameHero.length() == 0);
 
         int x = Utilites.getAction(1, 3, "Выберите класс героя. 1 - Воин, 2 - Маг, 3 - Разбойник");
 

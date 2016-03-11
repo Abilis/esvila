@@ -32,6 +32,11 @@ public class MainClass {
 
                     mainHero.cure(mainHero.hpMax);
                     mainHero.recovMana(100);
+
+                    if (!mainHero.alive) {
+                        mainHero.alive = true;
+                        System.out.println(mainHero.getName() + " был успешно воскрешен!");
+                    }
             }
 
         } while (true);

@@ -33,6 +33,22 @@ public abstract class Monster extends GameCharacter {
 
     }
 
+    public int getMonsterAction(){
+
+        int monsterAction;
+
+        int monsterActionRandom = Utilites.rand.nextInt(101);
+
+        if (monsterActionRandom < 80) {
+            monsterAction = 1;
+        }
+        else {
+            monsterAction = 2;
+        }
+
+        return monsterAction;
+    }
+
 
 
 
