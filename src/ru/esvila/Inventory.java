@@ -28,6 +28,7 @@ public class Inventory {
 
         if (inv.size() == 0) {
             System.out.println("Инвентарь пуст!");
+            System.out.println(gold + " золотых монет");
         }
         else {
 

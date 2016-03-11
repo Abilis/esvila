@@ -121,6 +121,9 @@ public class Battle {
                 System.out.println(hero.getName() + " забирает " + monster.monsterInv.getGold() + " золотых монет");
                 break;
             }
+            else if (!monster.alive && !hero.alive) {
+                System.out.println("Все умерли!");
+            }
 
 
         } while (true);

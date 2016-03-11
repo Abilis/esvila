@@ -22,9 +22,18 @@ public abstract class Monster extends GameCharacter {
     @Override
     public abstract void levelUp(int numLevels); //метод, увеличивающий уровень персонажа на NumLevels уровней
 
-    public void addGold(int gold) {
+    public void doRandomLevel(int currentLevel, int minLevel, int maxLevel) {
+
+        if (currentLevel - minLevel < 1) {
+            minLevel = 1;
+        }
+
+        int randomLevel = Utilites.rand.nextInt(maxLevel - minLevel) + minLevel;
+        levelUp(randomLevel);
 
     }
+
+
 
 
 }
