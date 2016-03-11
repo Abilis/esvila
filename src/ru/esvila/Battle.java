@@ -87,6 +87,7 @@ public class Battle {
                 case 3:
                     //вызов инвентаря героя
                     hero.showInventory = true;
+                    System.out.println("Содержимое инвентаря:");
                     hero.heroInv.showInventory();
 
                     inputInv = Utilites.getAction(0, hero.heroInv.getSizeInventory(), "0 - выйти из инвентаря");

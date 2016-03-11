@@ -40,8 +40,6 @@ public class Inventory {
         }
         else {
 
-            System.out.println("Содержимое инвентаря:");
-
             for (int i = 1; i <= inv.size(); i++) {
                 System.out.println(i + ". " + inv.get(i - 1).toString());
             }

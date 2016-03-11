@@ -13,8 +13,12 @@ public class MainClass {
         Hero mainHero = StartGame.initGame();
 
 
+
+
+
         do {
-            inputNum = Utilites.getAction(1, 2, "Что вы хотите сделать? 1 - вступить в сражение, 2 - восстановить силы");
+            inputNum = Utilites.getAction(1, 3, "Что вы хотите сделать? 1 - вступить в сражение, 2 - восстановить силы" +
+                    ", 3 - торговать");
 
             switch (inputNum) {
 
@@ -37,6 +41,10 @@ public class MainClass {
                         mainHero.alive = true;
                         System.out.println(mainHero.getName() + " был успешно воскрешен!");
                     }
+                case 3:
+                    //торговля
+                    Trade vendor = new Trade();
+                    vendor.trading(mainHero);
             }
 
         } while (true);
