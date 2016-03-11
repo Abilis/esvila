@@ -102,7 +102,7 @@ public class Mag extends Hero{
             System.out.println("Недостаточно маны для лечения!");
         }
         else {
-            cure((int)(hpMax * 0.3));
+            cure((int)(hpMax * 0.6));
             mana -= baseMana * 0.25;
         }
 

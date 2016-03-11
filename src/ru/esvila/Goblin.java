@@ -1,13 +1,20 @@
 package ru.esvila;
 
+import java.util.ArrayList;
+
 /**
  * Created by Abilis on 10.03.2016.
  */
 public class Goblin extends Monster {
 
+    private int dropChanceFromGoblinUnique = 10;
 
     public Goblin(String nameGoblin, int strength, int intellect, int agility, int stamina) {
         super("Гоблин", nameGoblin, strength, intellect, agility, stamina);
+
+        if (dropChanceFromGoblinUnique >= Utilites.rand.nextInt(101)) {
+            monsterInv.addItemInInventory(new Item(getRandomUniqueItem(), Item.ItemType.other));
+        }
     }
 
 
@@ -41,6 +48,17 @@ public class Goblin extends Monster {
 
         calculateSecondaryParameters();
 
+    }
+
+    private String getRandomUniqueItem() {
+        ArrayList<String> listOfGoblinUniqueItems = new ArrayList<String>();
+
+        listOfGoblinUniqueItems.add("Кровь гоблина");
+
+        int randomItemIndex = Utilites.rand.nextInt(listOfGoblinUniqueItems.size());
+        String nameOfItem = listOfGoblinUniqueItems.get(randomItemIndex);
+
+        return nameOfItem;
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public abstract class Monster extends GameCharacter {
 
     protected Inventory monsterInv;
-    protected int baseGold = 10;
+    protected int baseGold = 3;
     protected int dropChanceOther = 30;
     protected int dropChanceUsing = 30;
 
