@@ -6,7 +6,7 @@ package ru.esvila;
 public class Mag extends Hero{
 
 
-
+    
     public Mag(String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
         super(heroClass, nameHero, strength, intellect, agility, stamina);
     }
