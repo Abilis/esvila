@@ -37,17 +37,15 @@ public abstract class Hero extends GameCharacter {
         exp += addExp;
 
         if (exp >= expToLevel) {
-            int numLevels = (int) (exp / expToLevel);
 
-            for (int i = 1; i <= numLevels; i++) {
+            do {
+                exp -= expToLevel;
+                levelUp(1);
 
                 if (exp < expToLevel) {
                     break;
                 }
-
-                exp -= expToLevel;
-                levelUp(1);
-            }
+            } while (exp >= expToLevel);
         }
     }
 
