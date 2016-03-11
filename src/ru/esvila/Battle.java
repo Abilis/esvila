@@ -62,7 +62,7 @@ public class Battle {
 
             monster.makeNewRoundOfBattle();
 
-            inputNum = Utilites.getAction(0, 3, "1 - атака, 2 - защита, 3 - инвентарь, 0 - убежать");
+            inputNum = hero.inputNum();
 
             monsterAction = monster.getMonsterAction();
             if (monsterAction == 2) {

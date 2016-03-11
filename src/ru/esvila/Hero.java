@@ -49,6 +49,11 @@ public abstract class Hero extends GameCharacter {
         }
     }
 
+    public int inputNum() {
+        int inputNum = Utilites.getAction(0, 3, "1 - атака, 2 - защита, 3 - инвентарь, 0 - убежать");
+        return inputNum;
+    }
+
 
 
 }
