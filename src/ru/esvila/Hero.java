@@ -11,8 +11,6 @@ public abstract class Hero extends GameCharacter {
     protected Inventory heroInv;
 
 
-
-
     public Hero(String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
         super(heroClass, nameHero, strength, intellect, agility, stamina);
         killedMonsters = 0;

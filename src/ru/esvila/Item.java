@@ -23,4 +23,8 @@ public class Item {
         return nameOfItem;
     }
 
+    public ItemType getType() {
+        return type;
+    }
+
 }

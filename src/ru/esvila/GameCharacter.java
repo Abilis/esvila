@@ -130,4 +130,39 @@ public abstract class GameCharacter {
         showInventory = false;
     }
 
+    public void useItem(String item) {
+        //метод использования предмета
+        switch (item) {
+
+            case "Слабое зелье лечения":
+                cure(50);
+                break;
+            case "Слабое зелье маны":
+                recovMana(50);
+                break;
+
+        }
+
+
+
+    }
+
+    public void cure (int cure) {
+
+        hp += cure;
+
+        if (hp > hpMax) {
+            cure = hpMax - (hp - cure);
+            hp = hpMax;
+        }
+
+        System.out.println(charName + " восстановил " + cure + " единиц здоровья!" );
+    }
+
+    public void recovMana (int mana) {
+
+        //Маг переопределяет этот метод
+        System.out.println("Не маги не могут использовать этот метод!");
+    }
+
 }

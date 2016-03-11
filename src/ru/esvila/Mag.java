@@ -7,6 +7,7 @@ public class Mag extends Hero{
 
     protected int spellPower;
     protected int mana;
+    protected int manaMax;
     protected int magicAttack;
 
     public Mag(String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
@@ -24,6 +25,7 @@ public class Mag extends Hero{
         critChance = 3 + intellect / 3;
         avoidChance = 5 + agility / 3;
         mana = intellect * 4;
+        manaMax = mana;
 
         hp = stamina * 4;
         hpMax = hp;
@@ -47,10 +49,22 @@ public class Mag extends Hero{
 
     @Override
     public void getInfo() {
-        System.out.println(charClass + " " + charName + ". hp: " + hp + "/" + hpMax + ", опыт: " + exp + "/"
+        System.out.println(charClass + " " + charName + ". hp: " + hp + "/" + hpMax + ", мана: " +
+                mana + "/" + manaMax + ", опыт: " + exp + "/"
                 + expToLevel + ", уровень: " + level +
                 ". Убито монстров: " + killedMonsters);
     }
 
+    @Override
+    public void recovMana (int _mana) {
+
+        mana += _mana;
+
+        if (mana > manaMax) {
+            _mana = manaMax - (mana - _mana);
+            mana = manaMax;
+        }
+        System.out.println(charName + " восстановил " + _mana + " единиц маны!");
+    }
 
 }
