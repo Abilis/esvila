@@ -12,43 +12,12 @@ public class MainClass {
         //Инициализируем главного героя
         Hero mainHero = StartGame.initGame();
 
+        //Запускаем стартовую петлю игры
+        StartLocation.stastLocationLoop(mainHero);
 
 
 
 
-        do {
-            inputNum = Utilites.getAction(1, 3, "Что вы хотите сделать? 1 - вступить в сражение, 2 - восстановить силы" +
-                    ", 3 - торговать");
-
-            switch (inputNum) {
-
-                case 1: //создаем случайного монстра
-                    Monster currentMonster = Battle.createRandomMonster();
-
-
-                    //Даем монстру случайный разброс +-2 левела от уровня героя
-                    currentMonster.doRandomLevel(mainHero.getLevel(), mainHero.getLevel() - 1, mainHero.getLevel() + 2);
-
-                    //запускаем бой между героем и созданным монстром
-                    Battle.startBattle(mainHero, currentMonster);
-                    break;
-                case 2:
-
-                    mainHero.cure(mainHero.hpMax);
-                    mainHero.recovMana(100);
-
-                    if (!mainHero.alive) {
-                        mainHero.alive = true;
-                        System.out.println(mainHero.getName() + " был успешно воскрешен!");
-                    }
-                    break;
-                case 3:
-                    //торговля
-                    Trade vendor = new Trade();
-                    vendor.trading(mainHero);
-            }
-
-        } while (true);
 
 
 

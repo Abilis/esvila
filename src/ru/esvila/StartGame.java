@@ -9,7 +9,7 @@ public class StartGame {
 
     public static Hero mainHero;
     public static String nameHero;
-
+    public static Trade vendorStartLoc;
 
     public static Hero initGame() {
 
@@ -48,7 +48,8 @@ public class StartGame {
 
         mainHero.getInfo();
 
-
+        //создаем торговца в стартовой локации
+        vendorStartLoc = new Trade();
 
 
 

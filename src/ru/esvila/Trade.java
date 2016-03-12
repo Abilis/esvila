@@ -15,7 +15,10 @@ public class Trade {
         this.vendorInv = new Inventory();
         vendorInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using, 12));
         vendorInv.addItemInInventory(new Item("Слабое зелье маны", Item.ItemType.using, 12));
-        vendorInv.addGold(2000);
+        vendorInv.addItemInInventory(new Item("Посох мага", Item.ItemType.armor, 300));
+        vendorInv.addItemInInventory(new Item("Меч воина", Item.ItemType.armor, 300));
+        vendorInv.addItemInInventory(new Item("Кинжал разбойника", Item.ItemType.armor, 300));
+        vendorInv.addGold(200);
     }
 
     public void trading(Hero hero) {
@@ -39,8 +42,10 @@ public class Trade {
                     Item itemForSell = hero.heroInv.getItemFromInventory(inputInv - 1);
                     Inventory.transferOneItemFromFirstInvToSecondInv(hero.heroInv, vendorInv, itemForSell, itemForSell.getCost());
 
-                        System.out.println(hero.getName() + " продал " + itemForSell.toString() +
-                                " за " + itemForSell.getCost() + " золотых!");
+                        if (vendorInv.getGold() >= itemForSell.getCost()) {
+                            System.out.println(hero.getName() + " продал " + itemForSell.toString() +
+                                    " за " + itemForSell.getCost() + " золотых!");
+                        }
                     }
                     break;
                 case 2:
@@ -54,10 +59,12 @@ public class Trade {
                     if (inputInv != 0) {
 
                     Item itemForBuy = vendorInv.getItemFromInventory(inputInv - 1);
-                        Inventory.transferOneItemFromFirstInvToSecondInv(vendorInv, hero.heroInv,itemForBuy, 10);
+                        Inventory.transferOneItemFromFirstInvToSecondInv(vendorInv, hero.heroInv,itemForBuy, itemForBuy.getCost());
 
-                        System.out.println(hero.getName() + " купил " + itemForBuy.toString() +
-                                " за " + itemForBuy.getCost() + " золотых!");
+                        if (hero.heroInv.getGold() >= itemForBuy.getCost()) {
+                            System.out.println(hero.getName() + " купил " + itemForBuy.toString() +
+                                    " за " + itemForBuy.getCost() + " золотых!");
+                        }
                     }
                     break;
                 case 3:

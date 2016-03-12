@@ -49,6 +49,11 @@ public abstract class GameCharacter {
     protected int mana;
     protected int baseMana;
     protected int manaMax;
+
+    public int getManaMax() {
+        return manaMax;
+    }
+
     protected int magicAttack;
 
 

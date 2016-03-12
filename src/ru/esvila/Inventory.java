@@ -109,14 +109,11 @@ public class Inventory {
         } //конец if
     } //конец метода
 
-    public void sortInventory(Inventory _inv) {
-
-    }
 
     public static void transferOneItemFromFirstInvToSecondInv(Inventory inv1, Inventory inv2, Item item, int cost) {
 
 
-        if (inv1.getGold() < cost) {
+        if (inv2.getGold() < cost) {
             System.out.println("Недостаточно золота!");
         }
         else {
