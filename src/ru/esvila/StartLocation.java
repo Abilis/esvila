@@ -41,6 +41,7 @@ public class StartLocation {
                 case 3:
                     //торговля
                     StartGame.vendorStartLoc.trading(mainHero);
+                    break;
 
                 case 4:
                     //выход из этой петли
