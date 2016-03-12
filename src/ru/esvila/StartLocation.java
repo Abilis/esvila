@@ -8,7 +8,7 @@ public class StartLocation {
     private static int inputNum;
     private static boolean exit = false;
 
-    public static void stastLocationLoop(Hero mainHero) {
+    public static void startLocationLoop(Hero mainHero) {
 
         do {
             inputNum = Utilites.getAction(1, 4, "Что вы хотите сделать? 1 - найти монстра, 2 - восстановить силы" +

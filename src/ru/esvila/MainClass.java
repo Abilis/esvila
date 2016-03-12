@@ -13,7 +13,7 @@ public class MainClass {
         Hero mainHero = StartGame.initGame();
 
         //Запускаем стартовую петлю игры
-        StartLocation.stastLocationLoop(mainHero);
+        StartLocation.startLocationLoop(mainHero);
 
 
 
