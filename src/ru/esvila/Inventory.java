@@ -41,7 +41,7 @@ public class Inventory {
         else {
 
             for (int i = 1; i <= inv.size(); i++) {
-                System.out.println(i + ". " + inv.get(i - 1).toString());
+                System.out.println(i + ". " + inv.get(i - 1).toString() + ", ценность: " + inv.get(i - 1).getCost());
             }
             System.out.println(gold + " золотых монет");
         }

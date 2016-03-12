@@ -23,7 +23,7 @@ public class Trade {
 
     public void trading(Hero hero) {
 
-
+        goOut = false;
         do {
             inputNum = Utilites.getAction(1, 3, "1 - продать что-нибудь, 2 - купить что-нибудь, 3 - вернуться к приключениям");
 
