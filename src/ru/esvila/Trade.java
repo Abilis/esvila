@@ -5,23 +5,13 @@ package ru.esvila;
  */
 public class Trade {
 
-    public Inventory vendorInv;
-    private int inputNum;
-    private boolean goOut;
-    private int inputInv;
+    private static int inputNum;
+    private static boolean goOut;
+    private static int inputInv;
 
 
-    public Trade() {
-        this.vendorInv = new Inventory();
-        vendorInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using, 12));
-        vendorInv.addItemInInventory(new Item("Слабое зелье маны", Item.ItemType.using, 12));
-        vendorInv.addItemInInventory(new Item("Посох мага", Item.ItemType.armor, 300));
-        vendorInv.addItemInInventory(new Item("Меч воина", Item.ItemType.armor, 300));
-        vendorInv.addItemInInventory(new Item("Кинжал разбойника", Item.ItemType.armor, 300));
-        vendorInv.addGold(200);
-    }
 
-    public void trading(Hero hero) {
+    public static void trading(Hero hero, Vendor vendor) {
 
         goOut = false;
         do {
@@ -40,9 +30,9 @@ public class Trade {
                     if (inputInv != 0) {
 
                     Item itemForSell = hero.heroInv.getItemFromInventory(inputInv - 1);
-                    Inventory.transferOneItemFromFirstInvToSecondInv(hero.heroInv, vendorInv, itemForSell, itemForSell.getCost());
+                    Inventory.transferOneItemFromFirstInvToSecondInv(hero.heroInv, vendor.getVendorInv(), itemForSell, itemForSell.getCost());
 
-                        if (vendorInv.getGold() >= itemForSell.getCost()) {
+                        if (vendor.getVendorInv().getGold() >= itemForSell.getCost()) {
                             System.out.println(hero.getName() + " продал " + itemForSell.toString() +
                                     " за " + itemForSell.getCost() + " золотых!");
                         }
@@ -52,14 +42,14 @@ public class Trade {
                     //покупка героем
                     System.out.println("Здесь " + hero.getName() + " может чего-нибудь купить");
                     System.out.println("Ассортимент у торговца:");
-                    vendorInv.showInventory();
+                    vendor.getVendorInv().showInventory();
 
-                    inputInv = Utilites.getAction(0, vendorInv.getSizeInventory(), "0 - закончить торговлю");
+                    inputInv = Utilites.getAction(0, vendor.getVendorInv().getSizeInventory(), "0 - закончить торговлю");
 
                     if (inputInv != 0) {
 
-                    Item itemForBuy = vendorInv.getItemFromInventory(inputInv - 1);
-                        Inventory.transferOneItemFromFirstInvToSecondInv(vendorInv, hero.heroInv,itemForBuy, itemForBuy.getCost());
+                    Item itemForBuy = vendor.getVendorInv().getItemFromInventory(inputInv - 1);
+                        Inventory.transferOneItemFromFirstInvToSecondInv(vendor.getVendorInv(), hero.heroInv,itemForBuy, itemForBuy.getCost());
 
                         if (hero.heroInv.getGold() >= itemForBuy.getCost()) {
                             System.out.println(hero.getName() + " купил " + itemForBuy.toString() +

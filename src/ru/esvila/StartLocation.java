@@ -40,7 +40,7 @@ public class StartLocation {
                     break;
                 case 3:
                     //торговля
-                    StartGame.vendorStartLoc.trading(mainHero);
+                    Trade.trading(mainHero, StartGame.startLocationVendor);
                     break;
 
                 case 4:
