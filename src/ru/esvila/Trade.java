@@ -37,9 +37,10 @@ public class Trade {
                     if (inputInv != 0) {
 
                     Item itemForSell = hero.heroInv.getItemFromInventory(inputInv - 1);
-                    Inventory.transferOneItemFromFirstInvToSecondInv(hero.heroInv, vendorInv, itemForSell, 10);
+                    Inventory.transferOneItemFromFirstInvToSecondInv(hero.heroInv, vendorInv, itemForSell, itemForSell.getCost());
 
-                        System.out.println(hero.getName() + " продал " + itemForSell.toString() + " за 10 золотых!");
+                        System.out.println(hero.getName() + " продал " + itemForSell.toString() +
+                                " за " + itemForSell.getCost() + " золотых!");
                     }
                     break;
                 case 2:
@@ -52,9 +53,11 @@ public class Trade {
 
                     if (inputInv != 0) {
 
+                    Item itemForBuy = vendorInv.getItemFromInventory(inputInv - 1);
+                        Inventory.transferOneItemFromFirstInvToSecondInv(vendorInv, hero.heroInv,itemForBuy, 10);
 
-
-
+                        System.out.println(hero.getName() + " купил " + itemForBuy.toString() +
+                                " за " + itemForBuy.getCost() + " золотых!");
                     }
                     break;
                 case 3:

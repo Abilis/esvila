@@ -29,4 +29,8 @@ public class Item {
         return type;
     }
 
+    public int getCost() {
+        return cost;
+    }
+
 }
