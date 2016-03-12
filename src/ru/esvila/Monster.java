@@ -9,8 +9,8 @@ public abstract class Monster extends GameCharacter {
 
     protected Inventory monsterInv;
     protected int baseGold = 3;
-    protected int dropChanceOther = 30;
-    protected int dropChanceUsing = 30;
+    protected int dropChanceOther = 100;
+    protected int dropChanceUsing = 70;
 
 
     public Monster(String monsterClass, String nameMonster, int strength, int intellect, int agility, int stamina) {
@@ -19,10 +19,11 @@ public abstract class Monster extends GameCharacter {
         monsterInv.addGold((int)(baseGold * 0.8 + Utilites.rand.nextInt((int)(baseGold * 0.4))));
 
         if (dropChanceOther >= Utilites.rand.nextInt(101)) {
-            monsterInv.addItemInInventory(new Item(getRandomOtherItem(), Item.ItemType.other));
+            int randomCost = Utilites.rand.nextInt(3) + 2;
+            monsterInv.addItemInInventory(new Item(getRandomOtherItem(), Item.ItemType.other, randomCost));
         }
         if (dropChanceUsing >= Utilites.rand.nextInt(101)) {
-            monsterInv.addItemInInventory(new Item(getRandomUsingItem(), Item.ItemType.using));
+            monsterInv.addItemInInventory(new Item(getRandomUsingItem(), Item.ItemType.using, 10));
         }
     }
 

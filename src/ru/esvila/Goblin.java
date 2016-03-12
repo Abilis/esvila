@@ -13,7 +13,8 @@ public class Goblin extends Monster {
         super("Гоблин", nameGoblin, strength, intellect, agility, stamina);
 
         if (dropChanceFromGoblinUnique >= Utilites.rand.nextInt(101)) {
-            monsterInv.addItemInInventory(new Item(getRandomUniqueItem(), Item.ItemType.other));
+            int randomCost = Utilites.rand.nextInt(30) + 20;
+            monsterInv.addItemInInventory(new Item(getRandomUniqueItem(), Item.ItemType.other, randomCost));
         }
     }
 

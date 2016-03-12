@@ -13,7 +13,8 @@ public class Undead extends Monster {
         super("Нежить", nameUndead, strength, intellect, agility, stamina);
 
         if (dropChanceFromUndeadUnique >= Utilites.rand.nextInt(101)) {
-            monsterInv.addItemInInventory(new Item(getRandomUniqueItem(), Item.ItemType.other));
+            int randomCost = Utilites.rand.nextInt(30) + 20;
+            monsterInv.addItemInInventory(new Item(getRandomUniqueItem(), Item.ItemType.other, randomCost));
         }
     }
 

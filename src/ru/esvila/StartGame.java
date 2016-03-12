@@ -35,15 +35,15 @@ public class StartGame {
         //создаем героя
         if (x == 1) {
                 mainHero = new Warrior(mainHeroClass, nameHero, 15, 10, 10, 15);
-                mainHero.heroInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using));
+                mainHero.heroInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using, 10));
         }
         else if (x == 2) {
             mainHero = new Mag(mainHeroClass, nameHero, 10, 15, 10, 15);
-            mainHero.heroInv.addItemInInventory(new Item("Слабое зелье маны", Item.ItemType.using));
+            mainHero.heroInv.addItemInInventory(new Item("Слабое зелье маны", Item.ItemType.using, 10));
         }
         else if (x == 3) {
             mainHero = new Rogue (mainHeroClass,nameHero , 10, 10, 15, 15);
-            mainHero.heroInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using));
+            mainHero.heroInv.addItemInInventory(new Item("Слабое зелье лечения", Item.ItemType.using, 10));
         }
 
         mainHero.getInfo();

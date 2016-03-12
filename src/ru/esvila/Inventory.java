@@ -72,6 +72,10 @@ public class Inventory {
         this.gold += gold;
     }
 
+    public void remGold(int gold) {
+        this.gold -= gold;
+    }
+
     public static void transferItemsFromFirstInvToSecondInv(Inventory firstInv, Inventory secondInv) {
 
         for (int i = 0; i < firstInv.getSizeInventory(); i++) {
@@ -107,6 +111,22 @@ public class Inventory {
 
     public void sortInventory(Inventory _inv) {
 
+    }
+
+    public static void transferOneItemFromFirstInvToSecondInv(Inventory inv1, Inventory inv2, Item item, int cost) {
+
+
+        if (inv1.getGold() < cost) {
+            System.out.println("Недостаточно золота!");
+        }
+        else {
+            inv1.removeItemFromInventory(item);
+            inv2.addItemInInventory(item);
+
+            inv2.remGold(cost);
+            inv1.addGold(cost);
+            sortInv(inv2);
+        }
     }
 
 

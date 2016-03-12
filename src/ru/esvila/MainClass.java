@@ -41,6 +41,7 @@ public class MainClass {
                         mainHero.alive = true;
                         System.out.println(mainHero.getName() + " был успешно воскрешен!");
                     }
+                    break;
                 case 3:
                     //торговля
                     Trade vendor = new Trade();
