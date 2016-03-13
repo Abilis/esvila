@@ -58,7 +58,7 @@ public class Goblin extends Monster {
         int randomItemIndex = Utilites.rand.nextInt(listOfGoblinUniqueItems.size());
         String nameOfItem = listOfGoblinUniqueItems.get(randomItemIndex);
 
-        int randomCost = Utilites.rand.nextInt(30) + 20;
+        int randomCost = Utilites.rand.nextInt(10) + 40;
         OtherItem randomOtherItem = new OtherItem(nameOfItem, randomCost);
 
         return randomOtherItem;

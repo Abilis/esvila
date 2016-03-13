@@ -23,7 +23,8 @@ public class Mag extends Hero{
         return manaMax;
     }
 
-    protected int magicAttack;
+    private int magicAttack;
+    private int critChanceMagic;
 
 
     public Mag(String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
@@ -34,12 +35,13 @@ public class Mag extends Hero{
     @Override
     public void calculateSecondaryParameters() {
 
-        magicAttack = (int) (intellect * 1.7);
+        magicAttack = (int) (intellect * 1.9);
         attack = (int)(strength * 1.2);
         defense = (int)(strength / 2);
         hp = stamina * 4;
         hpMax = hp;
-        critChance = 3 + intellect / 3;
+        critChanceMagic = 3 + intellect / 3;
+        critChance = 3 + agility / 3;
         avoidChance = 5 + agility / 3;
         baseMana = intellect * 4;
         mana = baseMana;
@@ -91,8 +93,8 @@ public class Mag extends Hero{
     public int makeAttack() {
 
         if (mana < baseMana * 0.2) {
-            System.out.println("Недостаточно маны для атаки!");
-            return 0;
+            System.out.println("Недостаточно маны для магической атаки!");
+            return super.makeAttack();
         }
         else {
 
@@ -105,13 +107,14 @@ public class Mag extends Hero{
             currentAttack = minCurrentAttack + Utilites.rand.nextInt(deltaCurrentAttack);
             System.out.println(charName + " наносит удар в " + currentAttack + " единиц урона с помощью файербола");
 
-            if (critChance > Utilites.rand.nextInt(100)) {
+            if (critChanceMagic > Utilites.rand.nextInt(100)) {
                 currentAttack = currentAttack * 2;
                 System.out.println(charName + " наносит критический удар в " + currentAttack + " единиц урона с помощью файербола!");
             }
 
             return currentAttack;
         }
+
     }
 
     @Override

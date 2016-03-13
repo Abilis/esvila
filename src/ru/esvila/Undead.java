@@ -58,7 +58,7 @@ public class Undead extends Monster {
         int randomItemIndex = Utilites.rand.nextInt(listOfUndeadUniqueItems.size());
         String nameOfItem = listOfUndeadUniqueItems.get(randomItemIndex);
 
-        int randomCost = Utilites.rand.nextInt(30) + 20;
+        int randomCost = Utilites.rand.nextInt(10) + 40;
         OtherItem randomUniqueItem = new OtherItem(nameOfItem, randomCost);
 
         return randomUniqueItem;
