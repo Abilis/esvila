@@ -49,7 +49,7 @@ public class StartGame {
         mainHero.getInfo();
 
         //создаем торговца в стартовой локации
-        startLocationVendor = new StartLocationVendor("Первый торговец");
+        startLocationVendor = new StartLocationVendor("Торговый Джо");
 
 
 
