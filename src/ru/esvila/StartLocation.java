@@ -31,7 +31,7 @@ public class StartLocation {
                     mainHero.cure(mainHero.hpMax);
 
                     if (mainHero instanceof Mag) {
-                        mainHero.recovMana(mainHero.getManaMax());
+                        mainHero.recovMana(((Mag) mainHero).getManaMax());
                     }
                     if (!mainHero.alive) {
                         mainHero.alive = true;

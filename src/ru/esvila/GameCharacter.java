@@ -46,15 +46,7 @@ public abstract class GameCharacter {
     protected boolean showInventory;
     protected boolean defenseStanse;
 
-    protected int mana;
-    protected int baseMana;
-    protected int manaMax;
 
-    public int getManaMax() {
-        return manaMax;
-    }
-
-    protected int magicAttack;
 
 
     public GameCharacter (String charClass, String charName, int strength, int intellect, int agility, int stamina) {

@@ -156,8 +156,8 @@ public class Battle {
 
 
             if (hero instanceof Mag) {
-                if (hero.mana < hero.manaMax) {
-                    hero.recovMana((int)(hero.baseMana * 0.05));
+                if (((Mag) hero).getMana() < ((Mag) hero).getManaMax()) {
+                    hero.recovMana((int)(((Mag) hero).getBaseMana() * 0.05));
                 }
             }
 

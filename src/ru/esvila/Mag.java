@@ -5,6 +5,25 @@ package ru.esvila;
  */
 public class Mag extends Hero{
 
+    protected int mana;
+
+    public int getMana() {
+        return mana;
+    }
+
+    protected int baseMana;
+
+    public int getBaseMana() {
+        return baseMana;
+    }
+
+    protected int manaMax;
+
+    public int getManaMax() {
+        return manaMax;
+    }
+
+    protected int magicAttack;
 
 
     public Mag(String heroClass, String nameHero, int strength, int intellect, int agility, int stamina) {
