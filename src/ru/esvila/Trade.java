@@ -37,6 +37,14 @@ public class Trade {
                             System.out.println(hero.getName() + " продал " + itemForSell.toString() +
                                     " за " + itemForSell.getCost() + " золотых!");
                         }
+
+                        if (itemForSell.getType().equals(Item.ItemType.weapon)) {
+                            hero.setStrength(hero.getStrength() - ((WeaponItem) itemForSell).getStrengthPlus());
+                            hero.setIntellect(hero.getIntellect() - ((WeaponItem) itemForSell).getIntellectPlus());
+                            hero.setAgility(hero.getAgility() - ((WeaponItem) itemForSell).getAgilityPlus());
+                            hero.calculateSecondaryParameters();
+                        }
+
                     }
                     break;
                 case 2:
@@ -51,12 +59,19 @@ public class Trade {
                     if (inputInv != 0) {
 
                     Item itemForBuy = vendor.getVendorInv().getItemFromInventory(inputInv - 1);
-                        Inventory.transferOneItemFromFirstInvToSecondInv(vendor.getVendorInv(), hero.heroInv,itemForBuy, itemForBuy.getCost());
+                    Inventory.transferOneItemFromFirstInvToSecondInv(vendor.getVendorInv(), hero.heroInv,itemForBuy, itemForBuy.getCost());
 
                         if (hero.heroInv.getGold() >= itemForBuy.getCost()) {
                             System.out.println(hero.getName() + " купил " + itemForBuy.toString() +
                                     " за " + itemForBuy.getCost() + " золотых!");
                         }
+                        if (itemForBuy.getType().equals(Item.ItemType.weapon)) {
+                            hero.setStrength(hero.getStrength() + ((WeaponItem) itemForBuy).getStrengthPlus());
+                            hero.setIntellect(hero.getIntellect() + ((WeaponItem) itemForBuy).getIntellectPlus());
+                            hero.setAgility(hero.getAgility() + ((WeaponItem) itemForBuy).getAgilityPlus());
+                            hero.calculateSecondaryParameters();
+                        }
+
                     }
                     break;
                 case 3:

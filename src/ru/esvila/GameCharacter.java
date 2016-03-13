@@ -13,8 +13,35 @@ public abstract class GameCharacter {
     protected int baseStamina;
 
     protected int strength;
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int _strength) {
+        strength = _strength;
+    }
+
     protected int intellect;
+
+    public int getIntellect() {
+        return intellect;
+    }
+
+    public void setIntellect(int _intellect) {
+        intellect = _intellect;
+    }
+
     protected int agility;
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public void setAgility(int _agility) {
+        agility = _agility;
+    }
+
     protected int stamina;
 
     protected int hp;
