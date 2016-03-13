@@ -13,8 +13,7 @@ public class Undead extends Monster {
         super("Нежить", nameUndead, strength, intellect, agility, stamina);
 
         if (dropChanceFromUndeadUnique >= Utilites.rand.nextInt(101)) {
-            int randomCost = Utilites.rand.nextInt(30) + 20;
-            monsterInv.addItemInInventory(new Item(getRandomUniqueItem(), Item.ItemType.other, randomCost));
+            monsterInv.addItemInInventory(getRandomUniqueItem());
         }
     }
 
@@ -51,7 +50,7 @@ public class Undead extends Monster {
 
     }
 
-    private String getRandomUniqueItem() {
+    private OtherItem getRandomUniqueItem() {
         ArrayList<String> listOfUndeadUniqueItems = new ArrayList<String>();
 
         listOfUndeadUniqueItems.add("Бедренная кость");
@@ -59,7 +58,10 @@ public class Undead extends Monster {
         int randomItemIndex = Utilites.rand.nextInt(listOfUndeadUniqueItems.size());
         String nameOfItem = listOfUndeadUniqueItems.get(randomItemIndex);
 
-        return nameOfItem;
+        int randomCost = Utilites.rand.nextInt(30) + 20;
+        OtherItem randomUniqueItem = new OtherItem(nameOfItem, randomCost);
+
+        return randomUniqueItem;
     }
 
 

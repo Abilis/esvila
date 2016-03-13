@@ -148,19 +148,16 @@ public abstract class GameCharacter {
         defenseStanse = false;
     }
 
-    public void useItem(String item) {
+    public void useItem(Item item) {
         //метод использования предмета
-        switch (item) {
 
-            case "Слабое зелье лечения":
-                cure(50);
-                break;
-            case "Слабое зелье маны":
-                recovMana(50);
-                break;
+        if ( ((UsingItem) item).getHpPlus() > 0) {
+            cure(((UsingItem) item).getHpPlus());
         }
 
-
+        if (((UsingItem) item).getManaPlus() > 0) {
+            recovMana(((UsingItem) item).getManaPlus());
+        }
 
     }
 
@@ -179,12 +176,13 @@ public abstract class GameCharacter {
     public void recovMana (int mana) {
 
         //маги переопределяет этот метод
-        System.out.println("Не маги не могут использовать этот метод!");
+        System.out.println("Не маги не могут восстанавливать ману!");
     }
 
 
     public void magicHeal() {
         //маги переопределяет этот метод
+        System.out.println("Не маги не могут использовать магическое лечение!");
     }
 
 }

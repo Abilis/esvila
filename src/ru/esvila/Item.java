@@ -3,16 +3,25 @@ package ru.esvila;
 /**
  * Created by Abilis on 10.03.2016.
  */
-public class Item {
+public abstract class Item {
 
-    private String nameOfItem;
-    public enum ItemType {using, quest, weapon, armor, infinity, other}
-    private ItemType type;
-    private int cost;
+    protected String nameOfItem;
+    protected enum ItemType {using, quest, weapon, armor, infinity, other}
+    protected ItemType type;
 
-    public Item(String nameOfItem, ItemType type, int cost) {
+    public ItemType getType() {
+        return type;
+    }
+
+    protected int cost;
+
+    public int getCost() {
+        return cost;
+    }
+
+
+    public Item(String nameOfItem, int cost) {
         this.nameOfItem = nameOfItem;
-        this.type = type;
         this.cost = cost;
     }
 
@@ -25,12 +34,8 @@ public class Item {
         return nameOfItem;
     }
 
-    public ItemType getType() {
-        return type;
-    }
 
-    public int getCost() {
-        return cost;
-    }
+
+
 
 }

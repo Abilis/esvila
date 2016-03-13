@@ -12,6 +12,9 @@ public abstract class Monster extends GameCharacter {
     protected int dropChanceOther = 100;
     protected int dropChanceUsing = 70;
 
+    private int hpPlus;
+    private int manaPlus;
+
 
     public Monster(String monsterClass, String nameMonster, int strength, int intellect, int agility, int stamina) {
         super(monsterClass, nameMonster, strength, intellect, agility, stamina);
@@ -19,11 +22,10 @@ public abstract class Monster extends GameCharacter {
         monsterInv.addGold((int)(baseGold * 0.8 + Utilites.rand.nextInt((int)(baseGold * 0.4))));
 
         if (dropChanceOther >= Utilites.rand.nextInt(101)) {
-            int randomCost = Utilites.rand.nextInt(3) + 2;
-            monsterInv.addItemInInventory(new Item(getRandomOtherItem(), Item.ItemType.other, randomCost));
+            monsterInv.addItemInInventory(getRandomOtherItem());
         }
         if (dropChanceUsing >= Utilites.rand.nextInt(101)) {
-            monsterInv.addItemInInventory(new Item(getRandomUsingItem(), Item.ItemType.using, 10));
+            monsterInv.addItemInInventory(getRandomUsingItem());
         }
     }
 
@@ -61,7 +63,7 @@ public abstract class Monster extends GameCharacter {
         return monsterAction;
     }
 
-    private String getRandomOtherItem() {
+    private OtherItem getRandomOtherItem() {
         ArrayList<String> listOfOtherItems = new ArrayList<String>();
 
         listOfOtherItems.add("Сломанный меч");
@@ -76,10 +78,14 @@ public abstract class Monster extends GameCharacter {
         int randomItemIndex = Utilites.rand.nextInt(listOfOtherItems.size());
         String nameOfItem = listOfOtherItems.get(randomItemIndex);
 
-        return nameOfItem;
+        int randomCost = Utilites.rand.nextInt(3) + 2;
+
+        OtherItem randomOtherItem = new OtherItem(nameOfItem, randomCost);
+
+        return randomOtherItem;
     }
 
-    private String getRandomUsingItem() {
+    private UsingItem getRandomUsingItem() {
         ArrayList<String> listOfUsingItems = new ArrayList<String>();
 
         listOfUsingItems.add("Слабое зелье лечения");
@@ -89,7 +95,22 @@ public abstract class Monster extends GameCharacter {
         int randomItemIndex = Utilites.rand.nextInt(listOfUsingItems.size());
         String nameOfItem = listOfUsingItems.get(randomItemIndex);
 
-        return nameOfItem;
+        switch (nameOfItem) {
+
+            case "Слабое зелье лечения":
+                this.hpPlus = 50;
+                this.manaPlus = 0;
+                break;
+            case "Слабое зелье маны":
+                this.hpPlus = 0;
+                this.manaPlus = 50;
+                break;
+        }
+
+        UsingItem randomUsingItem = new UsingItem(nameOfItem, 10, hpPlus, manaPlus);
+
+
+        return randomUsingItem;
     }
 
 

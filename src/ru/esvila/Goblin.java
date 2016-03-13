@@ -13,8 +13,7 @@ public class Goblin extends Monster {
         super("Гоблин", nameGoblin, strength, intellect, agility, stamina);
 
         if (dropChanceFromGoblinUnique >= Utilites.rand.nextInt(101)) {
-            int randomCost = Utilites.rand.nextInt(30) + 20;
-            monsterInv.addItemInInventory(new Item(getRandomUniqueItem(), Item.ItemType.other, randomCost));
+            monsterInv.addItemInInventory(getRandomUniqueItem());
         }
     }
 
@@ -51,7 +50,7 @@ public class Goblin extends Monster {
 
     }
 
-    private String getRandomUniqueItem() {
+    private OtherItem getRandomUniqueItem() {
         ArrayList<String> listOfGoblinUniqueItems = new ArrayList<String>();
 
         listOfGoblinUniqueItems.add("Кровь гоблина");
@@ -59,7 +58,10 @@ public class Goblin extends Monster {
         int randomItemIndex = Utilites.rand.nextInt(listOfGoblinUniqueItems.size());
         String nameOfItem = listOfGoblinUniqueItems.get(randomItemIndex);
 
-        return nameOfItem;
+        int randomCost = Utilites.rand.nextInt(30) + 20;
+        OtherItem randomOtherItem = new OtherItem(nameOfItem, randomCost);
+
+        return randomOtherItem;
     }
 
 }

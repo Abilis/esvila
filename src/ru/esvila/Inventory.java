@@ -51,17 +51,7 @@ public class Inventory {
         return inv.size();
     }
 
-    public String getUseItem(int itemID) {
-        //метод возвращает название предмета из инвентаря по его индексу
-        String itemName = inv.get(itemID).getName();
 
-        if (inv.get(itemID).getType() == Item.ItemType.using) {
-            inv.remove(itemID);
-            return itemName;
-        }
-
-        return "";
-    }
 
 
     public int getGold() {

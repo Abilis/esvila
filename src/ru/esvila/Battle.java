@@ -92,10 +92,11 @@ public class Battle {
 
                     inputInv = Utilites.getAction(0, hero.heroInv.getSizeInventory(), "0 - выйти из инвентаря");
                     if (inputInv != 0) {
-                        String usedItem = hero.heroInv.getUseItem(inputInv - 1); //вытаскивание названия предмета из инвентаря по его индексу
-                        if (usedItem != "") {
-                            System.out.println(hero.getName() + " использовал " + usedItem);
-                            hero.useItem(usedItem); //использование
+                        Item usingItem = hero.heroInv.getItemFromInventory(inputInv - 1); //вытаскивание предмета из инвентаря по его индексу
+                        if (usingItem.getType().equals(Item.ItemType.using)) {
+                            System.out.println(hero.getName() + " использовал " + usingItem.toString());
+                            hero.heroInv.removeItemFromInventory(usingItem);
+                            hero.useItem(usingItem); //использование
                         }
                         else {
                             System.out.println("Невозможно использовать этот предмет!");
