@@ -18,7 +18,16 @@ public abstract class GameCharacter {
     protected int stamina;
 
     protected int hp;
+
+    public int getHp() {
+        return hp;
+    }
+
     protected int hpMax;
+
+    public int getHpMax() {
+        return hpMax;
+    }
 
     protected int attack;
     protected int defense;
@@ -32,6 +41,10 @@ public abstract class GameCharacter {
     }
 
     protected boolean alive;
+
+    public boolean isAlive() {
+        return alive;
+    }
 
     private static boolean runaway;
 
