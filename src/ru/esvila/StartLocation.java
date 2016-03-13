@@ -20,8 +20,8 @@ public class StartLocation {
                     Monster currentMonster = Battle.createRandomMonster();
 
 
-                    //Даем монстру случайный разброс +-2 левела от уровня героя
-                    currentMonster.doRandomLevel(mainHero.getLevel(), mainHero.getLevel() - 1, mainHero.getLevel() + 2);
+                    //Даем монстру случайный разброс уровней 1-3
+                    currentMonster.doRandomLevel(1, 1, 3);
 
                     //запускаем бой между героем и созданным монстром
                     Battle.startBattle(mainHero, currentMonster);
