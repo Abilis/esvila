@@ -9,8 +9,8 @@ public abstract class Monster extends GameCharacter {
 
     protected Inventory monsterInv;
     protected int baseGold = 3;
-    protected int dropChanceOther = 100;
-    protected int dropChanceUsing = 70;
+    protected int dropChanceOther = 30;
+    protected int dropChanceUsing = 30;
 
     private int hpPlus;
     private int manaPlus;

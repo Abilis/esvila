@@ -24,8 +24,7 @@ public class WeaponItem extends Item {
     }
 
     public WeaponItem(String nameOfItem, int cost, int strengthPlus, int intellectPlus, int agilityPlus) {
-        super(nameOfItem, cost);
-        this.type = ItemType.weapon;
+        super(nameOfItem, ItemType.weapon, cost);
         this.strengthPlus = strengthPlus;
         this.intellectPlus = intellectPlus;
         this.agilityPlus = agilityPlus;

@@ -18,8 +18,7 @@ public class UsingItem extends Item {
     }
 
     public UsingItem(String nameOfItem, int cost, int hpPlus, int manaPlus) {
-        super(nameOfItem, cost);
-        this.type = ItemType.using;
+        super(nameOfItem, ItemType.using, cost);
         this.hpPlus = hpPlus;
         this.manaPlus = manaPlus;
     }

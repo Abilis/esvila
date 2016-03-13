@@ -6,8 +6,7 @@ package ru.esvila;
 public class OtherItem extends Item {
 
     public OtherItem(String nameOfItem, int cost) {
-        super(nameOfItem, cost);
-        this.type = ItemType.other;
+        super(nameOfItem, ItemType.other, cost);
     }
 
 }

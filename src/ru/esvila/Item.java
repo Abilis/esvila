@@ -20,8 +20,9 @@ public abstract class Item {
     }
 
 
-    public Item(String nameOfItem, int cost) {
+    public Item(String nameOfItem, ItemType type, int cost) {
         this.nameOfItem = nameOfItem;
+        this.type = type;
         this.cost = cost;
     }
 
