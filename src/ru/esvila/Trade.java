@@ -23,7 +23,8 @@ public class Trade {
                     //продажа героем
                     System.out.println("Здесь " + hero.getName() + " может чего-нибудь купить");
                     System.out.println("Возможные вещи для продажи:");
-                    hero.heroInv.showInventory();
+                    hero.heroInv.showInventoryWithoutGold();
+                    System.out.println("У " + vendor.getVendotName() + " " + vendor.vendorInv.getGold() + " золотых");
 
                     inputInv = Utilites.getAction(0, hero.heroInv.getSizeInventory(), "0 - закончить торговлю");
 
@@ -42,7 +43,8 @@ public class Trade {
                     //покупка героем
                     System.out.println("Здесь " + hero.getName() + " может чего-нибудь купить");
                     System.out.println("Ассортимент у торговца:");
-                    vendor.getVendorInv().showInventory();
+                    vendor.getVendorInv().showInventoryWithoutGold();
+                    System.out.println("У " + hero.getName() + " " + hero.heroInv.getGold() + " золотых");
 
                     inputInv = Utilites.getAction(0, vendor.getVendorInv().getSizeInventory(), "0 - закончить торговлю");
 

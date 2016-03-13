@@ -47,12 +47,22 @@ public class Inventory {
         }
     }
 
+    public void showInventoryWithoutGold() {
+
+        if (inv.size() == 0) {
+            System.out.println("Инвентарь пуст!");
+        }
+        else {
+
+            for (int i = 1; i <= inv.size(); i++) {
+                System.out.println(i + ". " + inv.get(i - 1).toString() + ", ценность: " + inv.get(i - 1).getCost());
+            }
+        }
+    }
+
     public int getSizeInventory() {
         return inv.size();
     }
-
-
-
 
     public int getGold() {
         return gold;

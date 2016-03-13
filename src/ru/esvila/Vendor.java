@@ -6,6 +6,11 @@ package ru.esvila;
 public abstract class Vendor {
 
     protected String vendorName;
+
+    public String getVendotName() {
+        return vendorName;
+    }
+
     protected Inventory vendorInv;
 
     public Inventory getVendorInv() {
